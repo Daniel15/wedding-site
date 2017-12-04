@@ -9,9 +9,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
   die();
 }
 
+use PHPMailer\PHPMailer\PHPMailer;
+require '../vendor/autoload.php';
+
+$config = require('../config.php');
+
 $errors = [];
 if (empty($_POST['email'])) {
   $errors[] = 'Enter a contact email address';
+}
+$email_address = filter_var($_POST['email'], FILTER_VALIDATE_EMAIL);
+if ($email_address === false) {
+  $errors[] = 'Enter a valid contact email address';
 }
 if (empty($_POST['phone'])) {
   $errors[] = 'Enter a contact telephone number';
@@ -46,30 +55,49 @@ file_put_contents(
 );
 
 // Send email
-$email = <<<EOT
+$email_body = <<<EOT
 A new RSVP was received!
 
-Email: {$_POST['email']}
+Email: {$email_address}
 Phone: {$_POST['phone']}
 Guests:
 EOT;
 foreach ($_POST['guests'] as $index => $guest) {
   $dietary = empty($guest['dietary']) ? 'None' : $guest['dietary'];
-  $email .= <<<EOT
+  $email_body .= <<<EOT
 
  - {$guest['name']}
    Dietary requirements: {$dietary}
 EOT;
 }
 
-mail(
-  'rsvp@alisonanddan.com',
-  'RSVP from '.$_POST['guests'][0]['name'].' ('.count($_POST['guests']).' guests)',
-  $email
-);
+try {
+  $email = new PHPMailer(true);
+  $email->isSMTP();
+  $email->Host = $config['smtp']['host'];
+  $email->SMTPAuth = true;
+  $email->Username = $config['smtp']['username'];
+  $email->Password = $config['smtp']['password'];
+  $email->SMTPSecure = 'tls';
+  $email->Port = 587;
 
-echo json_encode([
-  'success' => true,
-  'response' => 'Thank you for submitting your RSVP 😁',
-]);
+  $email->setFrom($config['smtp']['username']);
+  $email->addAddress('rsvp@alisonanddan.com');
+  $email->addReplyTo($email_address, $_POST['guests'][0]['name']);
+
+  $email->Subject = 'RSVP from '.$_POST['guests'][0]['name'].' ('.count($_POST['guests']).' guests)';
+  $email->Body = $email_body;
+
+  $email->send();
+
+  echo json_encode([
+    'success' => true,
+    'response' => 'Thank you for submitting your RSVP 😁',
+  ]);
+} catch (Exception $e) {
+  echo json_encode([
+    'success' => false,
+    'response' => 'Sorry, there was an error in sending your RSVP: '.$e->getMessage(),
+  ]);
+}
 ?>
