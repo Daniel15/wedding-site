@@ -83,9 +83,10 @@
       xhr.send(serializeForm(formEl));
       xhr.onerror = () => {
         outputEl.classList.add('error');
+        const email = unescape('%72%73%76%70%40%61%6c%69%73%6f%6e%61%6e%64%64%61%6e%2e%63%6f%6d');
         outputEl.innerHTML = `
           Sorry, an error occurred 😢. Please email
-          <a href="mailto:rsvp@alisonanddaniel.wedding">rsvp@alisonanddaniel.wedding</a>.
+          <a href="mailto:${email}">${email}</a>.
         `;
         document.body.classList.remove('loading');
       }

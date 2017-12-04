@@ -63,7 +63,7 @@ EOT;
 }
 
 mail(
-  'rsvp@alisonanddaniel.wedding',
+  'rsvp@alisonanddan.com',
   'RSVP from '.$_POST['guests'][0]['name'].' ('.count($_POST['guests']).' guests)',
   $email
 );
