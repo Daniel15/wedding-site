@@ -1,0 +1,9 @@
+$zindices:
+  hero-mobile,
+  nav-bar,
+  hero,
+  nav-contents;
+
+@function zindex($layer) {
+  @return index($zindices, $layer);
+}

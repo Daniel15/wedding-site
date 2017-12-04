@@ -1,0 +1,91 @@
+/**
+ * Contains the contents of the nav bar (the links themselves). Layered on top
+ * of everything.
+ */
+.main-nav {
+  color: white;
+  height: $nav-height;
+  left: 0;
+  line-height: $nav-height;
+  padding-right: 0.5rem;
+  position: fixed;
+  right: 0;
+  text-align: right;
+  top: 0;
+  z-index: zindex('nav-contents');
+
+  ul {
+    position: relative;
+    // Move the nav up slightly, so that it's actually centered. Centering it
+    // using line-height doesn't take the bottom border into consideration.
+    top: -2px;
+  }
+
+  li {
+    display: inline-block;
+    padding-right: 0.5rem;
+
+    @media (#{$bp-larger-than-phablet}) {
+      padding-right: 2rem;
+    }
+
+    a {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+      color: inherit;
+      padding-bottom: 1px;
+      text-shadow: 0 0 2px #222, 2px 2px 2px #222;
+
+      &:hover {
+        text-decoration: none;
+        border-color: white;
+      }
+
+      body.hero-offscreen & {
+        text-shadow: none;
+      }
+    }
+  }
+}
+
+/**
+ * Black bar behind the nav links. The hero image is layered on top of this.
+ * So, when the hero is visible, the nav links are on top of the hero and this
+ * black bar is not visible. When the hero is scrolled off the screen, this
+ * bar appears.
+ */
+.nav-bar {
+  background-color: #222;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+  height: $nav-height;
+  left: 0;
+  overflow: hidden;
+  padding-left: 1rem;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: zindex('nav-bar');
+
+  &-inner {
+    position: relative;
+  }
+
+  h1.logo {
+    color: white;
+    opacity: 0;
+    font-size: 2rem;
+    line-height: $nav-height;
+    margin-bottom: 0;
+    transition: opacity 0.15s ease-in;
+
+    // Only display once the hero image is scrolled offscreen
+    body.hero-nearly-offscreen & {
+      opacity: 1;
+    }
+
+    // Don't animate into display on mobile, as the scrolling effect takes place
+    // instead.
+    @media (#{$bp-larger-than-tablet}) {
+      opacity: 1;
+    }
+  }
+}

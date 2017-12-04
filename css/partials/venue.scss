@@ -1,0 +1,29 @@
+.venue-list {
+  @extend %two-columns;
+
+  .venue-info {
+    li {
+      margin-bottom: 0.8rem;
+
+      &:before {
+        width: 1.8rem;
+      }
+    }
+
+    .venue-address {
+      @include icon('before', 'location') {
+        padding-left: 2px;
+      }
+    }
+
+    .venue-time {
+      @include icon('before', 'clock');
+    }
+
+    .venue-tel {
+      @include icon('before', 'phone') {
+        padding-left: 2px;
+      }
+    }
+  }
+}

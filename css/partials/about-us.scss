@@ -1,0 +1,55 @@
+.about-us {
+  @extend %two-columns;
+
+  .avatar {
+    border-radius: 50%;
+    height: 250px;
+    width: 250px;
+  }
+
+  // Social links
+  .social {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+
+    li {
+      display: inline;
+      list-style-type: none;
+    }
+
+    %social-link {
+      @include circle(5rem);
+      border: 1px solid #CCC;
+      color: #333;
+      font-size: 2rem;
+      margin-right: 0.6rem;
+      text-decoration: none;
+      transition: all 0.15s ease-in;
+
+      &:before {
+        // Styling to centre the icon
+        line-height: 5rem;
+        margin: 0;
+      }
+
+      &:hover {
+        color: white;
+      }
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+
+    @each $name, $colour in (facebook, #325c94), (twitter, #00abdc), (mail, #1b9cc5) {
+      .#{$name} {
+        @extend %social-link;
+        @include icon('before', $name);
+        &:hover {
+          background-color: $colour;
+        }
+      }
+    }
+  }
+}

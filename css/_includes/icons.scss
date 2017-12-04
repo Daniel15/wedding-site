@@ -1,0 +1,37 @@
+// Based on http://jaydenseric.com/blog/fun-with-sass-and-font-icons
+@mixin icon($position: before, $icon: false, $styles: true) {
+  @if $position == both {
+    $position: 'before, &:after';
+  }
+
+  // Either a :before or :after pseudo-element, or both, defaulting to :before
+  &:#{$position} {
+    @if $icon {
+      // A particular icon has been specified. This class comes from Fontello's
+      // daniel15-icons-codes.css
+      @extend .icon-#{$icon}:before;
+    }
+    @if $styles {
+      font-family: 'Daniel15-Icons' !important;
+      line-height: 1; // TODO: is this needed?
+      speak: none;
+
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+
+      // For safety - reset parent styles
+      display: inline-block;
+      font-style: normal;
+      font-weight: normal;
+      font-variant: normal;
+      text-decoration: inherit;
+      text-transform: none;
+    }
+    @content;
+  }
+}
+
+// To use icons in dedicated <span>s, rather than as part of another element
+[class^="icon-"], [class*=" icon-"] {
+  @include icon
+}

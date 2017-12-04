@@ -1,0 +1,84 @@
+.hero, .hero-placeholder {
+  height: 400px; // Fallback for browsers with no vh support
+  height: 100vh;
+}
+
+.hero {
+  background: white url('../../assets/img/cover.jpg') no-repeat right center fixed; // previously "center center"
+  background-size: cover;
+  background-position-y: 30%;
+  color: white;
+  left: 0;
+  position: absolute; // Required to allow nav bar to pop in after scrolling down
+  right: 0;
+  text-align: center;
+  // Essentially always show the top nav bar on mobile
+  z-index: zindex('hero-mobile');
+
+  @media (#{$bp-larger-than-tablet}) {
+    z-index: zindex('hero');
+  }
+
+  &-inner {
+    background: rgba(0, 0, 0, 0.7);
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.7) 0%,
+      rgba(0, 0, 0, 0.7) 90%,
+      rgba(0, 0, 0, 0.85) 100%
+    );
+    height: 100%;
+    position: relative;
+  }
+
+  &-text {
+    // Vertically centre
+    position: relative;
+    transform: translateY(-50%);
+    top: 50%;
+  }
+
+  &-subtitle {
+    font-size: 2rem;
+  }
+
+  .countdown {
+    display: flex;
+    justify-content: space-evenly;
+    max-width: 50rem;
+    margin: 2rem auto;
+
+    li {
+      margin-bottom: 0;
+    }
+
+    .unit {
+      display: block;
+    }
+    .count {
+      @include circle(7rem);
+      background: rgba(0, 0, 0, 0.5);
+      font-size: 3rem;
+    }
+  }
+
+  .scroll-down {
+    bottom: 1rem;
+    color: inherit;
+    display: none;
+    left: 0;
+    position: absolute;
+    right: 0;
+    @include icon('after', 'angle-circled-down') {
+      margin-left: 0.5rem;
+    }
+
+    &:hover {
+      text-decoration: none;
+    }
+
+    @media (#{$bp-larger-than-phablet}) {
+      display: block;
+    }
+  }
+}

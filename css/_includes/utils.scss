@@ -1,0 +1,38 @@
+@mixin circle($size) {
+  border-radius: 50%;
+  display: inline-block;
+  height: $size;
+  line-height: $size;
+  width: $size;
+}
+
+/*
+ * Hide only visually, but have it available for screen readers:
+ * http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+ */
+.visuallyhidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+// Horizontal list of radio buttons
+.radio-list-h {
+  > li {
+    display: inline;
+    margin-right: 1rem;
+
+    > label {
+      display: inline;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}

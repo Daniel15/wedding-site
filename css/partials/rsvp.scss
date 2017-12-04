@@ -1,0 +1,66 @@
+.rsvp-form {
+  ul.rsvp-guests {
+    input[type="email"],
+    input[type="text"],
+    select {
+      width: 100%;
+    }
+
+    @media (#{$bp-larger-than-tablet}) {
+      display: flex;
+      flex-wrap: wrap;
+      margin-right: -2rem; // Remove excess right padding from last column
+
+      > li {
+        padding: 0 2rem 0 0;
+        width: 50%;
+        /*@media (#{$bp-larger-than-desktop}) {
+          width: 33.33%;
+        }*/
+      }
+    }
+  }
+
+  .rsvp-footer {
+    align-items: baseline;
+    display: flex;
+    margin-top: 2rem;
+
+    button.submit {
+      margin-right: 1rem;
+      position: relative;
+
+      .spinner {
+        bottom: 0;
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        visibility: hidden;
+
+        body.loading & {
+          visibility: visible;
+        }
+      }
+
+      .label {
+        body.loading & {
+          visibility: hidden;
+        }
+      }
+    }
+
+    #rsvp-output {
+      &.error {
+        color: red;
+      }
+    }
+  }
+
+  &.submitted {
+    // Hide button once successfully submitted
+    button.submit {
+      display: none;
+    }
+  }
+}

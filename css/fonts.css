@@ -1,0 +1,68 @@
+/*
+ * This is a separate CSS file so that live reloading doesn't constantly
+ * reload the fonts.
+ */
+
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../../assets/fonts/open-sans-v15-latin-regular.eot');
+  src: local('Open Sans Regular'),
+       local('OpenSans-Regular'),
+       url('../../assets/fonts/open-sans-v15-latin-regular.eot?#iefix') format('embedded-opentype'),
+       url('../../assets/fonts/open-sans-v15-latin-regular.woff2') format('woff2'),
+       url('../../assets/fonts/open-sans-v15-latin-regular.woff') format('woff'),
+       url('../../assets/fonts/open-sans-v15-latin-regular.ttf') format('truetype'),
+       url('../../assets/fonts/open-sans-v15-latin-regular.svg#OpenSans') format('svg');
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: url('../../assets/fonts/open-sans-v15-latin-700.eot');
+  src: local('Open Sans Bold'),
+       local('OpenSans-Bold'),
+       url('../../assets/fonts/open-sans-v15-latin-700.eot?#iefix') format('embedded-opentype'),
+       url('../../assets/fonts/open-sans-v15-latin-700.woff2') format('woff2'),
+       url('../../assets/fonts/open-sans-v15-latin-700.woff') format('woff'),
+       url('../../assets/fonts/open-sans-v15-latin-700.ttf') format('truetype'),
+       url('../../assets/fonts/open-sans-v15-latin-700.svg#OpenSans') format('svg');
+}
+
+@font-face {
+  font-family: 'Audrey';
+  src: url('../../assets/fonts/audrey-bold.eot');
+  src: url('../../assets/fonts/audrey-bold.eot?#iefix') format('embedded-opentype'),
+       url('../../assets/fonts/audrey-bold.woff2') format('woff2'),
+       url('../../assets/fonts/audrey-bold.woff') format('woff'),
+       url('../../assets/fonts/audrey-bold.ttf') format('truetype'),
+       url('../../assets/fonts/audrey-bold.svg#audreybold') format('svg');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Audrey';
+  src: url('../../assets/fonts/audrey-normal.eot');
+  src: url('../../assets/fonts/audrey-normal.eot?#iefix') format('embedded-opentype'),
+       url('../../assets/fonts/audrey-normal.woff2') format('woff2'),
+       url('../../assets/fonts/audrey-normal.woff') format('woff'),
+       url('../../assets/fonts/audrey-normal.ttf') format('truetype'),
+       url('../../assets/fonts/audrey-normal.svg#audreyregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Daniel15-Icons';
+  src: url('../../assets/icons/font/daniel15-icons.eot');
+  src: url('../../assets/icons/font/daniel15-icons.eot#iefix') format('embedded-opentype'),
+       url('../../assets/icons/font/daniel15-icons.woff2') format('woff2'),
+       url('../../assets/icons/font/daniel15-icons.woff') format('woff'),
+       url('../../assets/icons/font/daniel15-icons.ttf') format('truetype'),
+       url('../../assets/icons/font/daniel15-icons.svg#daniel15-icons') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}

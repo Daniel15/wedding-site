@@ -1,0 +1,15 @@
+{
+  "name": "@daniel15/wedding",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Alison and Daniel wedding site",
+  "scripts": {},
+  "author": "Daniel Lo Nigro (dan.cx)",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "normalize.css": "^7.0.0",
+    "sites": "^1.0.2",
+    "skeleton-scss": "https://github.com/WhatsNewSaes/Skeleton-Sass#90168acee4a1caa997aa14ed151bb38810e15e01",
+    "smoothscroll": "^0.3.0"
+  }
+}

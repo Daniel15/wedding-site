@@ -1,0 +1,52 @@
+.container {
+  position: relative;
+  width: 100%;
+  max-width: $container-width;
+  margin: 0 auto;
+  padding: 0 20px;
+
+  // For devices larger than 400px
+  @media (#{$bp-larger-than-mobile}) {
+    width: $container-width-larger-than-mobile;
+    padding: 0;
+  }
+  // For devices larger than 550px
+  @media (#{$bp-larger-than-phablet}) {
+    width: $container-width-larger-than-phablet;
+  }
+
+  h2 {
+    margin-bottom: 3rem;
+    padding: 4rem 0 2rem 0;
+    position: relative;
+    text-align: center;
+
+    // Border below headings
+    &:before {
+      border-bottom: 1px solid #BBB;
+      bottom: 0;
+      content: ' ';
+      left: 20%;
+      position: absolute;
+      right: 20%;
+    }
+
+    // Heart in border
+    @include icon('after', 'heart') {
+      bottom: -1.1rem;
+      color: red;
+      font-size: 1.8rem;
+      left: 50%;
+      position: absolute;
+      transform: translateX(-50%);
+    }
+  }
+}
+
+footer {
+  background-color: #EFEFEF;
+  font-size: 1.2rem;
+  margin-top: 4rem;
+  padding: 1rem;
+  text-align: center;
+}

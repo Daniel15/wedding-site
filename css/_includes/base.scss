@@ -1,0 +1,36 @@
+@import '../node_modules/skeleton-scss/scss/base/_functions';
+@import '../node_modules/skeleton-scss/scss/base/_base-styles';
+@import '../node_modules/skeleton-scss/scss/base/_typography';
+@import '../node_modules/skeleton-scss/scss/modules/_forms';
+@import '../node_modules/skeleton-scss/scss/modules/_buttons';
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+// Remove bullets from lists by default
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-weight: bold;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: 'Audrey', serif;
+  text-transform: uppercase;
+}
+
+h4 {
+  margin: 3rem 0 0 0;
+}
