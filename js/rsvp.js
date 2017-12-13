@@ -41,7 +41,7 @@
                 checked="checked"
                 type="radio"
                 name="guests[${index}][can_attend]"
-                value="yes"
+                value="Yes"
                 id="can_attend_${index}_yes"
               />
               <span class="label-body">Able to attend</span>
@@ -52,7 +52,7 @@
               <input
                 type="radio"
                 name="guests[${index}][can_attend]"
-                value="no"
+                value="No"
                 id="can_attend_${index}_no"
               />
               <span class="label-body">Can't make it</span>

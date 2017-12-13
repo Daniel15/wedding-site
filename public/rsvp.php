@@ -67,6 +67,7 @@ foreach ($_POST['guests'] as $index => $guest) {
   $email_body .= <<<EOT
 
  - {$guest['name']}
+   Able to attend: {$guest['can_attend']}
    Dietary requirements: {$dietary}
 EOT;
 }
